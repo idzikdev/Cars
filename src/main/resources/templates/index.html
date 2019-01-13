@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{index.title}">Cars</title>
+    <title th:text="#{cars.title}">Title</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"></link>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <link th:href="@{/styles.css}" rel="stylesheet" type="text/css" media="all"></link>
+</head>
+<body>
+<p>WELCOME</p>
+<p th:text="${car.brand}">
+<p th:text="${car.model}">
+<p th:text="${car.year}">
+<p th:text="${car.power}">
+</p>
+</body>
+</html>
