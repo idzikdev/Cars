@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-md-6">
             <label for="form-post">Form by POST</label>
-            <form th:action="@{add}" method="post" id="form-post">
+            <form th:action="@{addCarPost}" th:object="${car}" method="post" id="form-post">
                 <table class="table table-striped">
                     <tr>
                         <th>Brand</th>

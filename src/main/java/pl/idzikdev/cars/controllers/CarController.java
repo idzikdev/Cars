@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.idzikdev.cars.modules.Car;
 import pl.idzikdev.cars.services.CarService;
 import pl.idzikdev.cars.services.CarServiceImp;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +39,11 @@ public class CarController {
                 year(year).
                 power(power).
                 build();
+        service.addCar(car);
+        return "redirect:/cars";
+    }
+    @PostMapping("addCarPost")
+    public String addCarPost(@Valid @ModelAttribute Car car){
         service.addCar(car);
         return "redirect:/cars";
     }
