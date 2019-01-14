@@ -1,5 +1,6 @@
 package pl.idzikdev.cars.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.idzikdev.cars.modules.Car;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Service
 public class CarServiceImp implements CarService{
-    List<Car> cars=new ArrayList<>();
+    List<Car> cars;
 
     public CarServiceImp() {
         loadCars();
@@ -23,6 +24,7 @@ public class CarServiceImp implements CarService{
     public void addCar(Car car) {
         this.cars.add(car);
     }
+
     private void loadCars(){
         System.out.println("Loading cars list .....");
         cars=new ArrayList<>();
@@ -30,5 +32,6 @@ public class CarServiceImp implements CarService{
         cars.add(new Car("Skoda","Fabia","2008","73"));
         cars.add(new Car("Skoda","Fabia","2010","83"));
         cars.add(new Car("Skoda","Fabia","2012","93"));
+        System.out.println(cars);
     }
 }

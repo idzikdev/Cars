@@ -1,5 +1,6 @@
 package pl.idzikdev.cars.controllers;
 
+import ch.qos.logback.core.util.COWArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.idzikdev.cars.modules.Car;
 import pl.idzikdev.cars.services.CarService;
+import pl.idzikdev.cars.services.CarServiceImp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,20 +19,18 @@ import java.util.List;
 @RequestMapping("/")
 public class CarController {
 
-
-    private CarService carService;
     @Autowired
-    public CarController(CarService carService) {
+    private CarService service;
+    public CarController(CarService service) {
     }
 
     @GetMapping("cars")
     public String getCarPage(Model map){
-        map.addAttribute("cars",carService.getCars());
+        map.addAttribute("cars",service.getCars());
         return "cars";
     }
     @GetMapping("add")
-    public String addCar(ModelMap map,
-                         @RequestParam(value = "brand") String marka,
+    public String addCar(@RequestParam(value = "brand") String marka,
                          @RequestParam(value = "model") String model,
                          @RequestParam(value = "year") String year,
                          @RequestParam(value = "power") String power) {
@@ -40,8 +40,7 @@ public class CarController {
                 year(year).
                 power(power).
                 build();
-//        carList.add(car);
-        map.addAttribute("car", car);
+        service.addCar(car);
         return "redirect:/cars";
     }
 }
