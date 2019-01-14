@@ -1,5 +1,6 @@
 package pl.idzikdev.cars.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.idzikdev.cars.modules.Car;
+import pl.idzikdev.cars.services.CarService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class CarController {
-    List<Car> carList=new ArrayList<>();
+
+
+    private CarService carService;
+    @Autowired
+    public CarController(CarService carService) {
+    }
+
     @GetMapping("cars")
     public String getCarPage(Model map){
-        map.addAttribute("cars",carList);
+        map.addAttribute("cars",carService.getCars());
         return "cars";
     }
     @GetMapping("add")
@@ -32,7 +40,7 @@ public class CarController {
                 year(year).
                 power(power).
                 build();
-        carList.add(car);
+//        carList.add(car);
         map.addAttribute("car", car);
         return "redirect:/cars";
     }
