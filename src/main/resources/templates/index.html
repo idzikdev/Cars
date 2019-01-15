@@ -1,14 +1,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Cars</title>
-</head>
 <body>
+<head th:replace="fragments/head::head"></head>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="figure rotate">
+                <a href="/cars"><img th:src="@{/images/button1.jpg}"></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" th:replace="fragments/forms::form-get">
+    </div>
+</div>
 <ul>
-    <li>
-        <p th:text="${hello}"></p>
-    </li>
-    <li>
+   <li>
         <a href="swagger-ui.html">swagger docs</a>
     </li>
 </ul>

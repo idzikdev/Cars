@@ -1,0 +1,50 @@
+<div class="row" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="form-get">
+    <div class="col-md-6">
+        <label for="form-get">Form by GET</label>
+        <form th:action="@{add}" method="get" id="form-get">
+            <table class="table table-striped">
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Power</th>
+                    <th>Picture</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="brand" value=""></td>
+                    <td><input type="text" name="model" value=""></td>
+                    <td><input type="text" name="year" value=""></td>
+                    <td><input type="text" name="power" value=""></td>
+                    <td><input type="text" name="picture" value=""></td>
+                    <td>
+                        <button class="btn btn-success btn-sm" type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="row" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="form-post">
+    <div class="col-md-6">
+        <label for="form-post">Form by POST</label>
+        <form th:action="@{addCarPost}" th:object="${car}" method="post" id="form-post">
+            <table class="table table-striped">
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Power</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="brand" value=""></td>
+                    <td><input type="text" name="model" value=""></td>
+                    <td><input type="text" name="year" value=""></td>
+                    <td><input type="text" name="power" value=""></td>
+                    <td>
+                        <button class="btn btn-success btn-sm" type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
