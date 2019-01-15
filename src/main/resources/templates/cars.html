@@ -17,12 +17,19 @@
                    <th>Model</th>
                    <th>Year</th>
                    <th>Power</th>
+                   <th>Picture</th>
                 </tr>
                 <tr th:each="i:${cars}">
                     <td th:text="${i.getBrand()}"></td>
                     <td th:text="${i.getModel()}"></td>
                     <td th:text="${i.getYear()}"></td>
                     <td th:text="${i.getPower()}"></td>
+                    <td>
+                        <div class="foto">
+                            <img th:src="${i.getPicture()}">
+                        </div>
+                    </td>
+                    <td><button type="button">Details</button></td>
                 </tr>
             </table>
         </div>
@@ -37,12 +44,14 @@
                         <th>Model</th>
                         <th>Year</th>
                         <th>Power</th>
+                        <th>Picture</th>
                     </tr>
                     <tr>
                         <td><input type="text" name="brand" value=""></td>
                         <td><input type="text" name="model" value=""></td>
                         <td><input type="text" name="year" value=""></td>
                         <td><input type="text" name="power" value=""></td>
+                        <td><input type="text" name="picture" value=""></td>
                         <td>
                             <button class="btn btn-success btn-sm" type="submit">Submit</button>
                         </td>

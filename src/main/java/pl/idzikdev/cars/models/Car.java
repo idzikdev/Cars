@@ -1,4 +1,4 @@
-package pl.idzikdev.cars.modules;
+package pl.idzikdev.cars.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,4 +14,5 @@ public class Car {
     private String model;
     private String year;
     private String power;
+    private String picture;
 }

@@ -1,7 +1,6 @@
 package pl.idzikdev.cars.services;
 
-import org.springframework.stereotype.Service;
-import pl.idzikdev.cars.modules.Car;
+import pl.idzikdev.cars.models.Car;
 
 import java.util.List;
 
