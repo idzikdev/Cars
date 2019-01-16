@@ -12,6 +12,6 @@ import pl.idzikdev.cars.models.Car;
 public class MyController {
     @GetMapping("car")
     public Car getCar(){
-        return new Car("Skoda","Fabia","2010","100","picture1.jpg");
+        return null;
     }
 }
