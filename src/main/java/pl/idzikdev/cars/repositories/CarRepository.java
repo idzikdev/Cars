@@ -8,9 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CarRepository extends JpaRepository<Car,Long> {
-    String BETWEEN_POWER="SELECT * FROM car " +
-            "where power between ?1 and ?2";
+    String BETWEEN_POWER="SELECT * FROM car where power between ?1 and ?2";
+    String MODEL="SELECT * FROM car where model=?1";
+
     List<Car> findByYear(String year);
+
     @Query(value = BETWEEN_POWER, nativeQuery = true)
     List<Car> findByBetweenPower(String from,String to);
+
+    @Query(value = MODEL,nativeQuery = true)
+    Optional<Car> findByModel(String model);
 }
